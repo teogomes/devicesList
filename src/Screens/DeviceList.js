@@ -60,6 +60,16 @@ const DeviceList = ({navigation, devices}) => {
               <Text>
                 OS: <Text style={styles.value}>{item.os}</Text>
               </Text>
+              <Text>
+                {'Owner: '}
+                <Text style={styles.value}>{item.owner}</Text>
+              </Text>
+              {item.notes && (
+                <Text>
+                  {'Notes: '}
+                  <Text style={styles.value}>{item.notes}</Text>
+                </Text>
+              )}
             </View>
             <Pressable onPress={onQRPress}>
               <QRCode
@@ -72,11 +82,8 @@ const DeviceList = ({navigation, devices}) => {
                 logoBackgroundColor="transparent"
               />
             </Pressable>
-            <Text>
-              {'Owner: '}
-              <Text style={styles.value}>{item.owner}</Text>
-            </Text>
           </View>
+
           <View style={styles.line} />
         </TouchableOpacity>
       );
@@ -148,6 +155,7 @@ const style = theme =>
       justifyContent: 'space-between',
       margin: theme.sizes.margin,
       alignItems: 'center',
+      flexWrap: 'wrap',
     },
     value: {
       color: theme.colors.primary,

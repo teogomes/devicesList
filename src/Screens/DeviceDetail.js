@@ -109,6 +109,14 @@ const DeviceDetail = ({
             style={styles.textInput}
           />
         </View>
+        <View>
+          <Text style={styles.textInputTitle}>Notes</Text>
+          <TextInput
+            value={device.notes}
+            onChangeText={text => handleChange('notes', text)}
+            style={styles.textInput}
+          />
+        </View>
         {selectedDevice && (
           <View style={styles.qrWrapper}>
             <QRCode

@@ -2,32 +2,10 @@ import React from 'react';
 import {View, Text, Switch, StyleSheet} from 'react-native';
 import useTheme from '../Theme/useTheme';
 import useThemedStyles from '../Theme/useThemedStyles';
-// import {ExportJsonCsv} from 'react-export-json-csv';
 
 const Settings = () => {
   const styles = useThemedStyles(style);
   const theme = useTheme();
-  const headers = [
-    {
-      key: 'id',
-      name: 'ID',
-    },
-    {
-      key: 'fname',
-      name: 'First Name',
-    },
-  ];
-
-  const data = [
-    {
-      id: '1',
-      fname: 'John',
-    },
-    {
-      id: '2',
-      fname: 'Doe',
-    },
-  ];
   const toggleSwitch = () => {
     theme.toggleAuto(!theme.isAuto);
   };
@@ -66,9 +44,6 @@ const Settings = () => {
           onValueChange={toggleDarkTheme}
           value={theme.isDark}
         />
-        {/* <ExportJsonCsv style={{color: 'red'}} headers={headers} items={data}>
-          Exportdsfsdf
-        </ExportJsonCsv> */}
       </View>
     </View>
   );
