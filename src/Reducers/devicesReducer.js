@@ -1,6 +1,10 @@
 import {ADD_DEVICE, DELETE_DEVICE, EDIT_DEVICE} from '../Constants/ActionTypes';
 
-export const devicesReducer = (state = {}, action) => {
+const initialState = {
+  devices: [],
+};
+
+export const devicesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DEVICE:
       return {
@@ -17,9 +21,7 @@ export const devicesReducer = (state = {}, action) => {
     case DELETE_DEVICE:
       return {
         ...state,
-        devices: state.devices.filter(
-          device => device.id !== action.payload.id,
-        ),
+        devices: state.devices.filter(device => device.id !== action.payload),
       };
     default:
       return state;

@@ -1,5 +1,8 @@
+import {configureStore} from '@reduxjs/toolkit';
 import React from 'react';
-import {render} from '../jest/test-utils';
+import {act} from 'react-test-renderer';
+import {render, fireEvent} from '../jest/test-utils';
+import {devicesReducer} from '../src/Reducers/devicesReducer';
 import DeviceDetail from '../src/Screens/DeviceDetail';
 
 const devices = [

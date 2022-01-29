@@ -54,7 +54,7 @@ const DeviceDetail = ({
 
   const onActionButtonPress = () => {
     selectedDevice ? editDevice(device) : addDevice(device);
-    navigation.goBack();
+    navigation?.goBack();
   };
 
   const onQRScanPress = () => {
@@ -62,7 +62,7 @@ const DeviceDetail = ({
   };
 
   const onDeletePress = () => {
-    deleteDevice(device);
+    deleteDevice(device.id);
     getQuoteOfTheDay().then(res => {
       if (res.data.length > 0) {
         Alert.alert('Quote of the day', res.data[0].q, [

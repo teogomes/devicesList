@@ -7,12 +7,15 @@ import {devicesReducer} from '../src/Reducers/devicesReducer';
 import ThemeProvider from '../src/Theme/ThemeProvider';
 import {NavigationContainer} from '@react-navigation/native';
 
-function render(ui, preloadedState) {
-  const store = configureStore({reducer: devicesReducer, preloadedState});
+function render(ui, preloadedState, store) {
+  const defaultStore = configureStore({
+    reducer: devicesReducer,
+    preloadedState,
+  });
 
   function Wrapper({children}) {
     return (
-      <Provider store={store}>
+      <Provider store={store ?? defaultStore}>
         <ThemeProvider>
           <NavigationContainer>{children}</NavigationContainer>
         </ThemeProvider>
