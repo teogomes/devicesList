@@ -1,4 +1,9 @@
-import {ADD_DEVICE, DELETE_DEVICE, EDIT_DEVICE} from '../Constants/ActionTypes';
+import {
+  ADD_DEVICE,
+  ADD_MULTIPLE_DEVICES,
+  DELETE_DEVICE,
+  EDIT_DEVICE,
+} from '../Constants/ActionTypes';
 
 const initialState = {
   devices: [],
@@ -10,6 +15,11 @@ export const devicesReducer = (state = initialState, action) => {
       return {
         ...state,
         devices: [...state.devices, action.payload],
+      };
+    case ADD_MULTIPLE_DEVICES:
+      return {
+        ...state,
+        devices: [...state.devices, ...action.payload],
       };
     case EDIT_DEVICE:
       return {

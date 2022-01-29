@@ -1,9 +1,21 @@
-import {ADD_DEVICE, EDIT_DEVICE, DELETE_DEVICE} from '../Constants/ActionTypes';
+import {
+  ADD_DEVICE,
+  EDIT_DEVICE,
+  DELETE_DEVICE,
+  ADD_MULTIPLE_DEVICES,
+} from '../Constants/ActionTypes';
 
 export const addDevice = device => dispatch => {
   dispatch({
     type: ADD_DEVICE,
     payload: device,
+  });
+};
+
+export const addMultipleDevices = devices => dispatch => {
+  dispatch({
+    type: ADD_MULTIPLE_DEVICES,
+    payload: devices,
   });
 };
 

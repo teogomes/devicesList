@@ -1,3 +1,4 @@
 export const ADD_DEVICE = 'ADD_DEVICE';
+export const ADD_MULTIPLE_DEVICES = 'ADD_MULTIPLE_DEVICES';
 export const EDIT_DEVICE = 'EDIT_DEVICE';
 export const DELETE_DEVICE = 'DELETE_DEVICE';
