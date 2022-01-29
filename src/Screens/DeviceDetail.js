@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import useThemedStyles from '../Theme/useThemedStyles';
-import QRCode from 'react-native-qrcode-svg';
 
 // Actions
 import {addDevice, deleteDevice, editDevice} from '../Actions/devicesActions';
@@ -117,19 +116,6 @@ const DeviceDetail = ({
             style={styles.textInput}
           />
         </View>
-        {selectedDevice && (
-          <View style={styles.qrWrapper}>
-            <QRCode
-              size={150}
-              value={JSON.stringify(device)}
-              logo={{
-                uri: 'https://media-exp1.licdn.com/dms/image/C4E0BAQF-6dnx36w7ng/company-logo_200_200/0/1519874416684?e=2159024400&v=beta&t=lAWw60ccpZRMju0sZ3_FLCq3xCfdltMRD6K9iS_kJXw',
-              }}
-              logoSize={32}
-              logoBackgroundColor="transparent"
-            />
-          </View>
-        )}
       </View>
       <View>
         {selectedDevice && (
@@ -159,14 +145,14 @@ const DeviceDetail = ({
 
 const style = theme =>
   StyleSheet.create({
-    contentContainer: {
-      flex: 1,
-      justifyContent: 'space-between',
-    },
     container: {
       backgroundColor: theme.colors.primary,
       padding: theme.sizes.largeMargin,
       paddingBottom: theme.sizes.xxLargeMargin,
+    },
+    contentContainer: {
+      flex: 1,
+      justifyContent: 'space-between',
     },
     textInputTitle: {
       color: theme.colors.secondary,

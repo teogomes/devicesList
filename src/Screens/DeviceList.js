@@ -23,7 +23,7 @@ const DeviceList = ({navigation, devices}) => {
   };
 
   useLayoutEffect(() => {
-    navigation.setOptions({
+    navigation?.setOptions({
       headerRight: () => (
         <TouchableOpacity onPress={onSettingsPress}>
           <Image style={styles.settingsIcon} source={settingsIcon} />
@@ -51,27 +51,40 @@ const DeviceList = ({navigation, devices}) => {
       };
 
       return (
-        <TouchableOpacity onPress={onCardPress} style={styles.itemContainer}>
+        <TouchableOpacity
+          testID="Card"
+          onPress={onCardPress}
+          style={styles.itemContainer}>
           <View style={styles.itemSubContainer}>
             <View>
               <Text>
-                Model: <Text style={styles.value}>{item.model}</Text>
+                Model:{' '}
+                <Text testID="Model" style={styles.value}>
+                  {item.model}
+                </Text>
               </Text>
               <Text>
-                OS: <Text style={styles.value}>{item.os}</Text>
+                OS:{' '}
+                <Text testID="OS" style={styles.value}>
+                  {item.os}
+                </Text>
               </Text>
               <Text>
                 {'Owner: '}
-                <Text style={styles.value}>{item.owner}</Text>
+                <Text testID="Owner" style={styles.value}>
+                  {item.owner}
+                </Text>
               </Text>
               {item.notes && (
                 <Text>
                   {'Notes: '}
-                  <Text style={styles.value}>{item.notes}</Text>
+                  <Text testID="Notes" style={styles.value}>
+                    {item.notes}
+                  </Text>
                 </Text>
               )}
             </View>
-            <Pressable onPress={onQRPress}>
+            <Pressable testID="QR" onPress={onQRPress}>
               <QRCode
                 size={60}
                 value={JSON.stringify(item)}
@@ -94,16 +107,18 @@ const DeviceList = ({navigation, devices}) => {
   return (
     <View style={styles.container}>
       <FlatList
+        testID={'FlatList'}
         data={devices}
         keyExtractor={item => item.id}
         renderItem={renderItem}
         ListEmptyComponent={
-          <View style={styles.emptyContainer}>
+          <View testID="NoContent" style={styles.emptyContainer}>
             <Text style={styles.emptyMessage}>No devices</Text>
           </View>
         }
       />
       <Modal
+        testID="QRModal"
         visible={selectedQR !== null}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
@@ -111,6 +126,7 @@ const DeviceList = ({navigation, devices}) => {
         }}
         transparent={true}>
         <TouchableOpacity
+          testID="ModalContainer"
           onPress={onModalContainerPress}
           style={styles.modalContainer}>
           <View style={styles.centeredView}>
@@ -128,7 +144,10 @@ const DeviceList = ({navigation, devices}) => {
           </View>
         </TouchableOpacity>
       </Modal>
-      <TouchableOpacity onPress={onFabPress} style={styles.fab}>
+      <TouchableOpacity
+        testID="FabButton"
+        onPress={onFabPress}
+        style={styles.fab}>
         <Image
           style={styles.fabIcon}
           source={{
