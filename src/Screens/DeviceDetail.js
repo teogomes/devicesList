@@ -8,8 +8,8 @@ import {
   TextInput,
   Pressable,
   Alert,
+  TouchableOpacity,
 } from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import useThemedStyles from '../Theme/useThemedStyles';
 
 // Actions
@@ -87,6 +87,7 @@ const DeviceDetail = ({
         <View>
           <Text style={styles.textInputTitle}>Owner</Text>
           <TextInput
+            testID="OwnerInput"
             value={device.owner}
             onChangeText={text => handleChange('owner', text)}
             style={styles.textInput}
@@ -95,6 +96,7 @@ const DeviceDetail = ({
         <View>
           <Text style={styles.textInputTitle}>Model</Text>
           <TextInput
+            testID="ModelInput"
             value={device.model}
             onChangeText={text => handleChange('model', text)}
             style={styles.textInput}
@@ -103,6 +105,7 @@ const DeviceDetail = ({
         <View>
           <Text style={styles.textInputTitle}>OS</Text>
           <TextInput
+            testID="OSInput"
             value={device.os}
             onChangeText={text => handleChange('os', text)}
             style={styles.textInput}
@@ -111,6 +114,7 @@ const DeviceDetail = ({
         <View>
           <Text style={styles.textInputTitle}>Notes</Text>
           <TextInput
+            testID="NotesInput"
             value={device.notes}
             onChangeText={text => handleChange('notes', text)}
             style={styles.textInput}
@@ -119,11 +123,15 @@ const DeviceDetail = ({
       </View>
       <View>
         {selectedDevice && (
-          <TouchableOpacity onPress={onDeletePress} style={styles.deleteButton}>
+          <TouchableOpacity
+            testID="DeleteButton"
+            onPress={onDeletePress}
+            style={styles.deleteButton}>
             <Text style={styles.deleteButtonText}>{'Delete'}</Text>
           </TouchableOpacity>
         )}
         <Pressable
+          testID="ActionButton"
           disabled={!validDevice}
           onPress={onActionButtonPress}
           style={[styles.actionButton, {opacity: validDevice ? 1 : 0.5}]}>

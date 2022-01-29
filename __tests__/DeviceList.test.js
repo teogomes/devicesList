@@ -6,7 +6,6 @@ const devices = [
   {
     id: 'testId',
     owner: 'owner',
-    device: 'device',
     model: 'model',
     os: 'os',
     notes: 'notes',
