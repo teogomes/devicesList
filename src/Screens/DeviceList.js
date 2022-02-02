@@ -58,13 +58,13 @@ const DeviceList = ({navigation, devices}) => {
           <View style={styles.itemSubContainer}>
             <View>
               <Text>
-                Model:{' '}
+                {'Model: '}
                 <Text testID="Model" style={styles.value}>
                   {item.model}
                 </Text>
               </Text>
               <Text>
-                OS:{' '}
+                {'OS: '}
                 <Text testID="OS" style={styles.value}>
                   {item.os}
                 </Text>

@@ -3,7 +3,7 @@ import {
   ADD_MULTIPLE_DEVICES,
   DELETE_DEVICE,
   EDIT_DEVICE,
-} from '../Constants/ActionTypes';
+} from '../ActionTypes';
 
 const initialState = {
   devices: [],

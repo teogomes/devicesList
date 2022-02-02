@@ -8,8 +8,7 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {createStore} from 'redux';
-import {devicesReducer} from './src/Reducers/devicesReducer';
+import {devicesReducer} from './src/Redux/Reducers/devicesReducer';
 import {NavigationContainer} from '@react-navigation/native';
 import MainNavigation from './src/Navigation/MainNavigation';
 import {Provider} from 'react-redux';

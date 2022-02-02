@@ -13,7 +13,11 @@ import {
 import useThemedStyles from '../Theme/useThemedStyles';
 
 // Actions
-import {addDevice, deleteDevice, editDevice} from '../Actions/devicesActions';
+import {
+  addDevice,
+  deleteDevice,
+  editDevice,
+} from '../Redux/Actions/devicesActions';
 
 // Services
 import {getQuoteOfTheDay} from '../Services/quoteCalls';
@@ -31,10 +35,11 @@ const DeviceDetail = ({
   const styles = useThemedStyles(style);
   const [validDevice, setValidDevice] = useState(false);
   const [device, setDevice] = useState({
-    id: Math.random(),
+    id: Math.random().toString(36).substring(2, 5),
     owner: '',
     model: '',
     os: '',
+    notes: '',
   });
 
   useEffect(() => {

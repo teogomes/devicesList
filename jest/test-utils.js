@@ -3,7 +3,7 @@ import {render as rtlRender} from '@testing-library/react-native';
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 // Import your own reducer
-import {devicesReducer} from '../src/Reducers/devicesReducer';
+import {devicesReducer} from '../src/Redux/Reducers/devicesReducer';
 import ThemeProvider from '../src/Theme/ThemeProvider';
 import {NavigationContainer} from '@react-navigation/native';
 

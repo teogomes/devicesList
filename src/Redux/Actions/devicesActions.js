@@ -3,7 +3,7 @@ import {
   EDIT_DEVICE,
   DELETE_DEVICE,
   ADD_MULTIPLE_DEVICES,
-} from '../Constants/ActionTypes';
+} from '../ActionTypes';
 
 export const addDevice = device => dispatch => {
   dispatch({

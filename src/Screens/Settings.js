@@ -12,11 +12,9 @@ import DocumentPicker from 'react-native-document-picker';
 import {DocumentDirectoryPath, readFile, writeFile} from 'react-native-fs';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addMultipleDevices} from '../Actions/devicesActions';
+import {addMultipleDevices} from '../Redux/Actions/devicesActions';
 import useTheme from '../Theme/useTheme';
 import useThemedStyles from '../Theme/useThemedStyles';
-
-// Actions
 
 const Settings = ({addMultipleDevices, devices}) => {
   const styles = useThemedStyles(style);
@@ -55,6 +53,7 @@ const Settings = ({addMultipleDevices, devices}) => {
         try {
           const json = JSON.parse(file);
           addMultipleDevices(json.devices);
+          Alert.alert('Devices added');
         } catch {
           Alert.alert('Could not parse file');
         }

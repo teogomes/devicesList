@@ -1,9 +1,5 @@
-import {
-  ADD_DEVICE,
-  DELETE_DEVICE,
-  EDIT_DEVICE,
-} from '../src/Constants/ActionTypes';
-import {devicesReducer} from '../src/Reducers/devicesReducer';
+import {ADD_DEVICE, DELETE_DEVICE, EDIT_DEVICE} from '../src/Redux/ActionTypes';
+import {devicesReducer} from '../src/Redux/Reducers/devicesReducer';
 
 const initialState = {
   devices: [],
